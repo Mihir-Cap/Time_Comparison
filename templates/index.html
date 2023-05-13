@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>World Clock</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+  </head>
+  <body>
+    <center>
+    <div class="container">
+      <h1>World Clock</h1>
+      <form>
+        <label for="first_country">First Country:</label>
+        <select id="first_country" name="first_country">
+          {% for country in country_list %}
+          <option value="{{ country[1] }}">{{ country[0] }}</option>
+          {% endfor %}
+        </select>
+        <br>
+        <label for="first_country_time">First Country Time:</label>
+        <input type="datetime-local" id="first_country_time" name="first_country_time">
+        <br>
+        <label for="second_country">Second Country:</label>
+        <select id="second_country" name="second_country">
+          {% for country in country_list %}
+          <option value="{{ country[1] }}">{{ country[0] }}</option>
+          {% endfor %}
+        </select>
+        <br>
+        <button id="submit_btn" type="button">Get Time</button>
+      </form>
+      <div id="result"></div>
+    </div>
+    </center>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  </body>
+</html>
